@@ -17,7 +17,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('about', function () {
+Route::get('/about', function () {
     $tags = ['обучение', 'программирование', 'php', 'oop'];
     return view('about', ['tags' => $tags]);
+});
+
+Route::get('/articles', function () {
+    $article = new App\Models\Article();
+    return view('articles', ['articles' => $article->all()]);
 });

@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\RatingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,3 +26,5 @@ Route::get('/articles', function () {
     $article = new App\Models\Article();
     return view('articles', ['articles' => $article->all()]);
 });
+
+Route::get('/rating', [RatingController::class, 'index']);

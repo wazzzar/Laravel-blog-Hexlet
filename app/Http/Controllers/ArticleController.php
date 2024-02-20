@@ -40,14 +40,14 @@ class ArticleController extends Controller
      */
     public function store(Request $request): \Illuminate\Http\RedirectResponse
     {
-        $data = $this->validate($request, [
+        $this->validate($request, [
             'name' => 'required|unique:articles',
-            'body' => 'required|min:10',
+            'body' => 'required|min:100',
             'category_id' => 'required'
         ]);
 
         $article = new Article();
-        $article->fill($data);
+        $article->fill($request->all());
         $article->save();
 
         return redirect()->route('articles.index');

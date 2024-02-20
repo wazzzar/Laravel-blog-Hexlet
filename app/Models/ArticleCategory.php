@@ -9,6 +9,8 @@ class ArticleCategory extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['state', 'name', 'description'];
+
     public function articles(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(__NAMESPACE__ . '\Article', 'category_id');

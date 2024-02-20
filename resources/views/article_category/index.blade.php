@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
-@section('header', 'Список категорий')
+@section('header')
+    Список категорий <a href="{{ route('article_categories.create') }}">Добавить</a>
+@endsection
 
 @section('content')
 <table>

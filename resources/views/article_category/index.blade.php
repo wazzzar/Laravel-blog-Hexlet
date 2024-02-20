@@ -27,6 +27,8 @@
         </td>
         <td>
             <a href="{{route('article_categories.edit', $article_category)}}">Редактировать</a>
+            <a href="{{route('article_categories.destroy', $article_category)}}" rel="nofollow"
+               data-method="delete" data-confirm="Вы уверены?">Удалить</a>
         </td>
     </tr>
 @endforeach

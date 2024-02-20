@@ -71,4 +71,13 @@ class ArticleCategoryController extends Controller
             ]
         ]);
     }
+
+    public function destroy($id): \Illuminate\Http\RedirectResponse
+    {
+        $category = ArticleCategory::find($id);
+        if ($category) {
+            $category->delete();
+        }
+        return redirect()->route('article_categories.index');
+    }
 }

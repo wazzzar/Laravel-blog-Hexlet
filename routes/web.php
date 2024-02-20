@@ -37,5 +37,6 @@ Route::post('/article_categories', [ArticleCategoryController::class, 'store'])-
 Route::get('/article_categories/{id}', [ArticleCategoryController::class, 'show'])->name('article_categories.show');
 Route::get('/article_categories/{id}/edit', [ArticleCategoryController::class, 'edit'])->name('article_categories.edit');
 Route::patch('/article_categories/{id}', [ArticleCategoryController::class, 'update'])->name('article_categories.update');
+Route::delete('/article_categories/{id}', [ArticleCategoryController::class, 'destroy'])->name('article_categories.destroy');
 
 Route::get('/rating', [RatingController::class, 'index']);

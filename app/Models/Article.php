@@ -9,6 +9,8 @@ class Article extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['category_id', 'name', 'body'];
+
     /**
      * @var mixed
      */

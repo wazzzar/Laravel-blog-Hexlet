@@ -14,6 +14,7 @@
             <a href="{{route('articles.show', $article)}}">{{$article->name}}</a>
             ({{$article->category}})
             <a href="{{route('articles.edit', $article)}}">Редактировать</a>
+            <a href="{{route('articles.destroy', $article)}}" rel="nofollow" data-method="delete" data-confirm="Вы уверены?">Удалить</a>
         </h2>
         <div>{{Str::limit($article->body, 200)}}</div>
     @endforeach

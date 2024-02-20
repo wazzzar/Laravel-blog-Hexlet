@@ -66,6 +66,7 @@ class ArticleCategoryController extends Controller
             'name' => 'required|max:100|unique:article_categories' . ($category ? ',name,' . $category->id : ''),
             'description' => 'required|min:20',
             'state' => [
+                'required',
                 Rule::in(['draft', 'published'])
             ]
         ]);

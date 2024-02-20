@@ -29,6 +29,7 @@ Route::post('/articles', [ArticleController::class, 'store'])->name('articles.st
 Route::get('/articles/{id}', [ArticleController::class, 'show'])->name('articles.show');
 Route::get('/articles/{id}/edit', [ArticleController::class, 'edit'])->name('articles.edit');
 Route::patch('/articles/{id}', [ArticleController::class, 'update'])->name('articles.update');
+Route::delete('/articles/{id}', [ArticleController::class, 'destroy'])->name('articles.destroy');
 
 Route::get('/article_categories', [ArticleCategoryController::class, 'index'])->name('article_categories.index');
 Route::get('/article_categories/create', [ArticleCategoryController::class, 'create'])->name('article_categories.create');

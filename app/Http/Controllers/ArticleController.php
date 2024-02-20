@@ -80,4 +80,13 @@ class ArticleController extends Controller
             'category_id' => 'required'
         ]);
     }
+
+    public function destroy($id): \Illuminate\Http\RedirectResponse
+    {
+        $article = Article::find($id);
+        if ($article) {
+            $article->delete();
+        }
+        return redirect()->route('articles.index');
+    }
 }

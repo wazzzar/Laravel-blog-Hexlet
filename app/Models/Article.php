@@ -14,6 +14,11 @@ class Article extends Model
      */
     private $state;
 
+    public function category(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->belongsTo(__NAMESPACE__ . '\ArticleCategory');
+    }
+
     public function isPublished(): bool
     {
         return $this->state == 'published';

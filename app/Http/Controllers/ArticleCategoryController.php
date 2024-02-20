@@ -12,4 +12,10 @@ class ArticleCategoryController extends Controller
         $article_categories = ArticleCategory::paginate(10);
         return view('article_category.index', compact('article_categories'));
     }
+
+    public function show($id)
+    {
+        $article_cat = ArticleCategory::findOrFail($id);
+        return view('article_category.show', compact('article_cat'));
+    }
 }

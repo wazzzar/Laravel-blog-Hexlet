@@ -17,6 +17,7 @@ class CreateArticlesTable extends Migration
             $table->id();
             $table->string('name'); // название статьи
             $table->text('body'); // тело статьи
+            $table->integer('category_id');
             $table->timestamps();
         });
     }

@@ -72,9 +72,10 @@ class ArticleController extends Controller
     /**
      * @throws ValidationException
      */
-    private function _validate(Request $request, Article $article = null){
-        return $this->validate($request, [
-            'name' => 'required|unique:articles'. ($article ? ',name,' . $article->id : ''),
+    private function _validate(Request $request, Article $article = null): void
+    {
+        $this->validate($request, [
+            'name' => 'required|unique:articles' . ($article ? ',name,' . $article->id : ''),
             'body' => 'required|min:100',
             'category_id' => 'required'
         ]);

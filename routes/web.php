@@ -34,5 +34,7 @@ Route::get('/article_categories', [ArticleCategoryController::class, 'index'])->
 Route::get('/article_categories/create', [ArticleCategoryController::class, 'create'])->name('article_categories.create');
 Route::post('/article_categories', [ArticleCategoryController::class, 'store'])->name('article_categories.store');
 Route::get('/article_categories/{id}', [ArticleCategoryController::class, 'show'])->name('article_categories.show');
+Route::get('/article_categories/{id}/edit', [ArticleCategoryController::class, 'edit'])->name('article_categories.edit');
+Route::patch('/article_categories/{id}', [ArticleCategoryController::class, 'update'])->name('article_categories.update');
 
 Route::get('/rating', [RatingController::class, 'index']);

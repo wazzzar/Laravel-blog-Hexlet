@@ -35,21 +35,48 @@ class ArticleController extends Controller
         return view('article.create', compact('article', 'categories'));
     }
 
+    public function edit($id)
+    {
+        $article = Article::findOrFail($id);
+        $categories = [];
+        foreach (ArticleCategory::all() as $category){
+            $categories[$category->id] = $category->name;
+        }
+        return view('article.edit', compact('article', 'categories'));
+    }
+
     /**
      * @throws ValidationException
      */
     public function store(Request $request): \Illuminate\Http\RedirectResponse
     {
-        $this->validate($request, [
-            'name' => 'required|unique:articles',
+        $article = new Article();
+        $this->_validate($request);
+        $article->fill($request->all());
+        $article->save();
+        return redirect()->route('articles.index');
+    }
+
+    /**
+     * @throws ValidationException
+     */
+    public function update(Request $request, $id): \Illuminate\Http\RedirectResponse
+    {
+        $article = Article::findOrFail($id);
+        $this->_validate($request, $article);
+        $article->fill($request->all());
+        $article->save();
+        return redirect()->route('articles.index');
+    }
+
+    /**
+     * @throws ValidationException
+     */
+    private function _validate(Request $request, Article $article = null){
+        return $this->validate($request, [
+            'name' => 'required|unique:articles'. ($article ? ',name,' . $article->id : ''),
             'body' => 'required|min:100',
             'category_id' => 'required'
         ]);
-
-        $article = new Article();
-        $article->fill($request->all());
-        $article->save();
-
-        return redirect()->route('articles.index');
     }
 }

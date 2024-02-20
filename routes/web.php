@@ -27,6 +27,8 @@ Route::get('/articles', [ArticleController::class, 'index'])->name('articles.ind
 Route::get('/articles/create', [ArticleController::class, 'create'])->name('articles.create');
 Route::post('/articles', [ArticleController::class, 'store'])->name('articles.store');
 Route::get('/articles/{id}', [ArticleController::class, 'show'])->name('articles.show');
+Route::get('/articles/{id}/edit', [ArticleController::class, 'edit'])->name('articles.edit');
+Route::patch('/articles/{id}', [ArticleController::class, 'update'])->name('articles.update');
 
 Route::get('/article_categories', [ArticleCategoryController::class, 'index'])->name('article_categories.index');
 Route::get('/article_categories/create', [ArticleCategoryController::class, 'create'])->name('article_categories.create');
